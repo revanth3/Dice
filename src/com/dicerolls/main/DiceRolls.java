@@ -5,20 +5,32 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 public class DiceRolls {
-	private int arr[] = {6,6,6,1,4};
+
+/*	public static void main(String a[]){
+		int arr[] = {6,6,6,1,4};
+
+		DiceRolls dr = new DiceRolls();
+
+		int score = dr.getValues(arr);
+
+		System.out.println(score);
+
+
+	}*/
 
 	public int getValues(int[] arr1) {
 		HashMap<Integer, Integer> hMap = new HashMap<Integer, Integer>();
-		for(int i : arr){
+		for(int i : arr1){
 			int value = 0;
 			if(hMap.containsKey(i)){
 				value = hMap.get(i);
 			}
-			value = value + 1;
+			value = value + 1;	
 			hMap.put(i, value);
 		}
-		return 0;
+		return  getScore(hMap);
 	}
+
 	private int getScore(HashMap<Integer, Integer> hMap) {
 		Set<Entry<Integer, Integer>> entries = hMap.entrySet();
 
@@ -31,6 +43,9 @@ public class DiceRolls {
 				score += getTripleScore(entry.getKey()); 
 
 			}		
+			if(count >= 1){
+				score = score + (getSingleScore(entry.getKey())*count);
+			}
 		}
 
 		return score;
@@ -52,6 +67,19 @@ public class DiceRolls {
 			return 500;
 		case 6:
 			return 600;
+		default:
+			return 0;
+
+		}
+	}
+
+	private int getSingleScore(int key){
+
+		switch(key){
+		case 1:
+			return 100;
+		case 4:
+			return 40;
 		default:
 			return 0;
 
