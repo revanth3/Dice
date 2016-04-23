@@ -30,10 +30,10 @@ public class DiceRollsTest {
 		int arr5[] = {1,5,5,5,1};
 		assertEquals(700,dr.getValues(arr5));
 		
-	/*	int arr6[] = {0,0,0,0,0};
+		int arr6[] = {0,0,0,0,0};
 		assertEquals(0,dr.getValues(arr6));
 		
 		int arr7[] = {2,2,2,2,2};
-		assertEquals(200,dr.getValues(arr7));*/
+		assertEquals(200,dr.getValues(arr7));
 	}
 }

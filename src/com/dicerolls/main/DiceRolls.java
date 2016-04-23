@@ -60,7 +60,7 @@ public class DiceRolls {
 		case 2:
 			return 200;
 		case 3:
-			return 3000;
+			return 300;
 		case 4:
 			return 400;
 		case 5:
