@@ -11,14 +11,17 @@ public class DiceRolls {
 
 		DiceRolls dr = new DiceRolls();
 
-		int score = dr.getValues(arr);
+		int score = dr.getScores(arr);
 
 		System.out.println(score);
 
 
 	}*/
-
-	public int getValues(int[] arr1) {
+	
+	/*
+	 * get values method take integer array as input and returns total score  
+	 */
+	public int getScores(int[] arr1) {
 		HashMap<Integer, Integer> hMap = new HashMap<Integer, Integer>();
 		for(int i : arr1){
 			int value = 0;
@@ -28,10 +31,14 @@ public class DiceRolls {
 			value = value + 1;	
 			hMap.put(i, value);
 		}
-		return  getScore(hMap);
+		return calculateScore(hMap);
 	}
 
-	private int getScore(HashMap<Integer, Integer> hMap) {
+	/*
+	 * Calculates score 
+	 * 
+	 */
+	private int calculateScore(HashMap<Integer, Integer> hMap) {
 		Set<Entry<Integer, Integer>> entries = hMap.entrySet();
 
 		int score = 0;
@@ -51,7 +58,17 @@ public class DiceRolls {
 		return score;
 	}
 
-
+	/*
+	 * Gets triple score 
+	 * which returns 1000 for 1
+	 *  200 for 2
+	 *  300 for 3
+	 *  400 for 4
+	 *  500 for 5
+	 *  600 for 6
+	 * 0 for other numbers 
+	 * takes input as integer and returns integer 
+	 */
 	private int getTripleScore(int key){
 
 		switch(key){
@@ -73,6 +90,13 @@ public class DiceRolls {
 		}
 	}
 
+	/*
+	 * Gets single score 
+	 * which returns 100 for 1
+	 * 40 for 4
+	 * 0 for other numbers 
+	 * takes input as integer and returns integer 
+	 */
 	private int getSingleScore(int key){
 
 		switch(key){
